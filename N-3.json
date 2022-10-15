@@ -18,8 +18,8 @@
         "apricot",
         "lime"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html": "N-4",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html": "N-0"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
+    ]
 }

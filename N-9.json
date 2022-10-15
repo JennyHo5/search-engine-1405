@@ -40,7 +40,7 @@
         "apple",
         "apricot"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html": "N-8"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html"
+    ]
 }

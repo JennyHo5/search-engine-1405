@@ -35,9 +35,9 @@
         "banana",
         "papaya"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html": "N-0",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-3.html": "N-3",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html": "N-7"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-3.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html"
+    ]
 }

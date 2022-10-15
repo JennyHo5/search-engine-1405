@@ -7,9 +7,9 @@
         "kiwi",
         "blueberry"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html": "N-7",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-9.html": "N-9",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html": "N-0"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-9.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
+    ]
 }

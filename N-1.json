@@ -23,7 +23,7 @@
         "fig",
         "coconut"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html": "N-0"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
+    ]
 }

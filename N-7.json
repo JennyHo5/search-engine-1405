@@ -19,9 +19,9 @@
         "kiwi",
         "pear"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html": "N-0",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html": "N-4",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html": "N-8"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html"
+    ]
 }

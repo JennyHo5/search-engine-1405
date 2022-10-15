@@ -26,14 +26,14 @@
         "banana",
         "fig"
     ],
-    "links": {
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-3.html": "N-3",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html": "N-4",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-5.html": "N-5",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-6.html": "N-6",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html": "N-8",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-1.html": "N-1",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-2.html": "N-2",
-        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html": "N-7"
-    }
+    "links": [
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-3.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-5.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-6.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-1.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-2.html",
+        "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html"
+    ]
 }

@@ -33,7 +33,7 @@ def rel_or_abs(link, seed):
         return link
 
 def find_links(html, seed):
-    dict = {}
+    links = []
     while '<a href="' in html:
         start_a_index = html.find('<a href="')
         end_a_index = html.find('</a>')
@@ -42,17 +42,15 @@ def find_links(html, seed):
             end_quotation_index = a.find('">')
             link = a[: end_quotation_index]
             link = rel_or_abs(link, seed)
-            title = a[end_quotation_index + 2 :]
-            dict[link] = title
+        links.append(link)
         html = html[: start_a_index] + html[end_a_index + 5:]
-    return dict
+    return links
 
 
 def crawl(seed):
 
     # 1. Reset any existing data
     # delete all files and information from previous crawl
-
 
     curr_dir = os.getcwd()
     cache_dir = curr_dir + "/__pycache__"
@@ -67,9 +65,8 @@ def crawl(seed):
         os.remove(os.path.join(cache_dir, file))
     os.rmdir(cache_dir)
 
-
     # 2. perform a web crawl starting at seed URL
-        # 2.1 create a list a URLs that we need to visit
+        # 2.1 create a list of URLs that we need to visit
     queue = []
 
     already_crawled = [] # a list to track the page that we've already crawled so that we can skip them
