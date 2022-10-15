@@ -6,6 +6,8 @@ import searchdata
 
 a = 0.1
 
-URL = "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
+threshold = 0.0001
 
-print(searchdata.calculate_page_rank(URL, a))
+URL = "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html"
+
+print((searchdata.calculate_page_ranks(URL, a, threshold)).values())
