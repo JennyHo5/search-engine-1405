@@ -59,9 +59,10 @@ def get_incoming_links(URL):
     return incoming_links
 
 
-
 # calculate the pagerank
-def calculate_page_rank(URL, a):
+def calculate_page_ranks(URL):
+    a = 0.1
+    threshold = 0.0001
     crawled_links = get_crawled_links() # there are N pages crawled
     # 1. if the URL was not found during the crawling process then return None
     if URL not in crawled_links:
@@ -157,17 +158,22 @@ def calculate_page_rank(URL, a):
         # 9.1 create a vector
     v0 = [[]]
     for i in range(N):
-        v0[0].append(0)
-    v0[0][0] = 1
-    print(matrix)
-    print(v0)
-        # 9.2 multiply the matrix by v
-    v1 = matmult.mult_matrix(v0, matrix)
-    print(v1)
-    e = matmult.euclidean_dist(v0, v1)
-    print(e)
+        v0[0].append(1/N)
 
-    # 10. return the pagerank for the specific page
+        # 9.2  keep multiplying the matrix by a vector π (1, 0, 0, ...) until difference in π between iterations is below a threshold
+
+    e = 1
+    while e >= threshold:
+        v1 = matmult.mult_matrix(v0, matrix)
+        e = matmult.euclidean_dist(v0, v1)
+        v0 = v1
+
+    # 10. return pageranks for all pages
+    page_ranks = {}
+    for i in range(N):
+        page_ranks[int_links[i]] = v0[0][i]
+
+    return page_ranks
 
 
 
@@ -179,5 +185,8 @@ def get_page_rank(URL):
     if URL not in crawled_links:
         return None
     # 2. calculate the page rank
-    rank = calculate_page_rank(URL)
+    ranks = calculate_page_ranks(URL, a, threshold)
+    for key in ranks:
+        if key == URL:
+            rank = ranks[key]
     return rank
