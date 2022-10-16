@@ -5,6 +5,8 @@ import json
 import searchdata
 
 
-URL = "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html"
+URL = "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
 
-print((searchdata.calculate_page_ranks(URL).values()))
+word = "apple"
+
+print((searchdata.get_tf_idf(URL, word)))
