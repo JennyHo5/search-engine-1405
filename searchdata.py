@@ -32,6 +32,15 @@ def get_all_words():
                 all_words[url] = words
     return all_words
 
+# return a list including all words crawled (no duplication)
+def get_crawled_words():
+    crawled_words = []
+    for url in get_all_words():
+        words = get_all_words()[url]
+        for i in words:
+            if i not in crawled_words:
+                crawled_words.append(i)
+    return crawled_words
 
 # return a list of all the URLs that have been crawled
 def get_crawled_links():
@@ -207,12 +216,7 @@ def get_page_rank(URL):
 # Accepts a single string argument representing a word and returns the inverse document frequency of that word within the crawled pages
 def get_idf(word):
     # create a list that include all word crawled (no duplicate)
-    crawled_words = []
-    for url in get_all_words():
-        words = get_all_words()[url]
-        for i in words:
-            if i not in crawled_words:
-                crawled_words.append(i)
+    crawled_words = get_crawled_words()
 
     # 1. if the word was not present in any crawled documents, this function must return 0
     if word not in crawled_words:
