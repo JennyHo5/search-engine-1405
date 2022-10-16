@@ -60,7 +60,9 @@ def get_incoming_links(URL):
 
 
 # calculate the pagerank
-def calculate_page_ranks(URL, a, threshold):
+def calculate_page_ranks(URL):
+    a = 0.1
+    threshold = 0.0001
     crawled_links = get_crawled_links() # there are N pages crawled
     # 1. if the URL was not found during the crawling process then return None
     if URL not in crawled_links:
@@ -177,7 +179,7 @@ def calculate_page_ranks(URL, a, threshold):
 
 # URL -> the PageRank value of the page with that URL
 # what PageRank calculates: the probability the random surfer is on page x at any given time
-def get_page_rank(URL, a, threshold):
+def get_page_rank(URL):
     crawled_links = get_crawled_links()
     # 1. if the URL was not found during the crawling process then return None
     if URL not in crawled_links:
