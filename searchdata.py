@@ -7,8 +7,9 @@ import webdev
 import os
 import json
 import matmult
+import math
 
-# return a list of the data of all pages that have been crawled
+# return a dict of the data of all pages that have been crawled
 def get_crawled_pages():
     crawled_pages = {}
     for filename in os.listdir():
@@ -18,6 +19,19 @@ def get_crawled_pages():
             crawled_pages[data["link"]] = data
             filein.close()
     return crawled_pages
+
+# return a dict including all of the words in crawled pages, key -> url, value -> words
+def get_all_words():
+    all_words = {}
+    crawled_pages = get_crawled_pages() # a dict
+    for url in crawled_pages:
+        data = crawled_pages[url]
+        for i in data:
+            if i == "words":
+                words = data[i]
+                all_words[url] = words
+    return all_words
+
 
 # return a list of all the URLs that have been crawled
 def get_crawled_links():
@@ -176,7 +190,6 @@ def calculate_page_ranks(URL):
     return page_ranks
 
 
-
 # URL -> the PageRank value of the page with that URL
 # what PageRank calculates: the probability the random surfer is on page x at any given time
 def get_page_rank(URL):
@@ -190,3 +203,64 @@ def get_page_rank(URL):
         if key == URL:
             rank = ranks[key]
     return rank
+
+# Accepts a single string argument representing a word and returns the inverse document frequency of that word within the crawled pages
+def get_idf(word):
+    # create a list that include all word crawled (no duplicate)
+    crawled_words = []
+    for url in get_all_words():
+        words = get_all_words()[url]
+        for i in words:
+            if i not in crawled_words:
+                crawled_words.append(i)
+
+    # 1. if the word was not present in any crawled documents, this function must return 0
+    if word not in crawled_words:
+        return 0
+
+    # 2. else, calculate frequency
+        # 2.1 total document
+    total_docs_num = len(get_crawled_pages())
+        # 2.2 number of documents w appears in
+    appear_num = 0
+    for key in get_all_words():
+        url = key
+        page_words = get_all_words()[key] # return a list of words on page
+        if word in page_words:
+            appear_num += 1
+        # 2.3 calculate the frequency
+    numerator = total_docs_num
+    denominator = 1 + appear_num
+    fraction = numerator / denominator
+    idf = math.log(fraction, 2)
+    return idf
+
+# Accepts two string arguments: a URL and a word. This function must return the term frequency of that word within the page with the given URL
+def get_tf(URL, word):
+    # 1. If the word does not appear in the page with the given URL, or the URL has not been found during the crawl, this function must return 0
+        # 1.1 if the URL does not found during the crawl, returin 0
+    if URL not in get_crawled_links():
+        return 0
+
+        # 1.2 if the word does not appear in the page with the given URL, return 0
+    curr_words = get_all_words()[URL]
+    if word not in curr_words:
+        return 0
+
+    # 2. claculate tf
+        # 2.1 occurences of word in doc
+    count = 0
+    for i in curr_words:
+        if i == word:
+            count += 1
+    numerator = count
+    denominator = len(curr_words)
+    tf = numerator / denominator
+    return tf
+
+# return the tf-idf weight for the given word within the page represented by the given URL
+def get_tf_idf(URL, word):
+    tf = get_tf(URL, word)
+    idf = get_idf(word)
+    tf_idf = math.log(1 + tf, 2) * idf
+    return tf_idf
