@@ -5,22 +5,27 @@ import json
 import os
 
 def find_title(str):
-    start_title_index = str.find("<title>")
-    end_title_index = str.find("</title>")
-    title = str[start_title_index + 7 : end_title_index]
+    start_title_tag_index = str.find("<title")
+    end_title_tag_index = str.find("</title>")
+    title_tag = str[start_title_tag_index + 6 : end_title_tag_index]
+    start_title_index = title_tag.find(">") + 1
+    title = title_tag[start_title_index :]
     return title
 
 def find_words(str):
-    words = []
-    while "<p>" in str:
-        start_p_index = str.find("<p>")
+    all_words = []
+    while "<p" in str:
+        start_p_index = str.find("<p")
         end_p_index = str.find("</p>")
-        p = str[start_p_index + 3 : end_p_index].split()
-        for i in p:
-            words.append(i)
+        p = str[start_p_index : end_p_index]
+        start_words_index = p.find(">") + 1
+        words = p[start_words_index :]
+        words = words.split()
+        for word in words:
+            all_words.append(word)
         # delete the saved p and find the next new p
-        str = str[: start_p_index] + str[end_p_index + 5:]
-    return words
+        str = str[: start_p_index] + str[end_p_index + 4:]
+    return all_words
 
 #determine if it is a relative or absolute link, and return the full URL
 def rel_or_abs(link, seed):
@@ -38,10 +43,9 @@ def find_links(html, seed):
         start_a_index = html.find('<a href="')
         end_a_index = html.find('</a>')
         a = html[start_a_index + 9 : end_a_index]
-        for cha in a:
-            end_quotation_index = a.find('">')
-            link = a[: end_quotation_index]
-            link = rel_or_abs(link, seed)
+        end_quotation_index = a.find('">')
+        link = a[: end_quotation_index]
+        link = rel_or_abs(link, seed)
         links.append(link)
         html = html[: start_a_index] + html[end_a_index + 5:]
     return links

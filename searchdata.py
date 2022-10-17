@@ -20,6 +20,15 @@ def get_crawled_pages():
             filein.close()
     return crawled_pages
 
+# url -> title
+def get_title(URL):
+    crawled_pages = get_crawled_pages() # key -> url, value -> {link:..., title:..., ...}
+    for key in crawled_pages:
+        if key == URL:
+            page_title = crawled_pages[key]["title"]
+    return page_title
+
+
 # return a dict including all of the words in crawled pages, key -> url, value -> words
 def get_all_words():
     all_words = {}
@@ -207,7 +216,7 @@ def get_page_rank(URL):
     if URL not in crawled_links:
         return None
     # 2. calculate the page rank
-    ranks = calculate_page_ranks(URL, a, threshold)
+    ranks = calculate_page_ranks(URL)
     for key in ranks:
         if key == URL:
             rank = ranks[key]

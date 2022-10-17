@@ -190,3 +190,14 @@ Threshold of 0.0001 is reached, stopping iteration
 
 Final Page Rank Vector:
 [[0.32242792521306995, 0.0819555328928385, 0.11896585666418055, 0.04626363024816037, 0.04626363024816037, 0.12476521976591842, 0.04626363024816037, 0.04626363024816037, 0.11939323868209492, 0.047437705789256435]]
+
+0 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html
+1 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-3.html
+2 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-4.html
+3 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-5.html
+4 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-6.html
+5 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-8.html
+6 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-1.html
+7 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-2.html
+8 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-7.html
+9 -> https://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-9.html
