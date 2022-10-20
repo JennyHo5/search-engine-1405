@@ -21,7 +21,7 @@ def get_search_query(phrase): # phrase = 'coconut coconut orange blueberry lime 
     query = list(dict.fromkeys(query)) # delete duplicate words # query = ['coconut', 'orange', 'blueberry', 'lime', 'tomato']
     search_query = []
     for word in query:
-        if searchdata.get_idf(word) > 0:
+        if searchdata.get_idf(word) > 0: #
             search_query.append(word)
     return search_query # query = ['coconut', 'orange', 'blueberry', 'lime']
 
@@ -145,8 +145,8 @@ def search(phrase, boost):
             page["score"] = pagerank * score
 
 
-    # 5.sort the result from the toppest to lowest
+    #  5.sort the result from the toppest to lowest
     result = sorted(result, key = lambda x: x["score"], reverse = True)
-    result = result[:10] # top 10
+    sorted_result = result[:10] # top 10
 
-    return result
+    return sorted_result
