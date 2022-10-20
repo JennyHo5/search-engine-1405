@@ -262,12 +262,12 @@ def calculate_idfs(crawled_pages, crawled_words, all_words):
     # 1. total document
     total_docs_num = len(crawled_pages)
     # 2. number of documents w appears in
-    for word in crawled_words:
+    for word in crawled_words: # O(n), n = number of words crawled
         appear_num = 0
-        for key in all_words:
+        for key in all_words: # O(n), n = number of pages crawled
             url = key
             page_words = all_words[key] # return a list of words on page
-            if word in page_words:
+            if word in page_words: # O(n), n = number of words on the specific page
                 appear_num += 1
             # 2.3 calculate the frequency
         numerator = total_docs_num
@@ -285,12 +285,12 @@ def calculate_tfs(crawled_pages, crawled_words, all_words):
         url = page
         url_word_tfs = {} # tfs for words to that specific url
         curr_words = all_words[url] # N(1)
-        for word in crawled_words:
-            if word not in curr_words:
+        for word in crawled_words: # O(n), n = number of words crawled
+            if word not in curr_words: # O(m), m = number of words on the specific page
                 tf = 0
             else:
                 count = 0
-                for i in curr_words:
+                for i in curr_words: # O(m), m = number of words on the specific page
                     if i == word:
                         count += 1
                 numerator = count
