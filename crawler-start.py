@@ -2,7 +2,7 @@ import crawler
 import json
 import time
 
-seed = "http://people.scs.carleton.ca/~davidmckenney/fruits/N-0.html"
+seed = "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/N-0.html"
 
 start = time.time()
 crawler.crawl(seed)

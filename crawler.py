@@ -380,7 +380,7 @@ def crawl(seed):
 
     # set the var crawled_pages
     filein = open("crawled-pages.json", "r")
-    crawled_pages = json.load(filein)
+    crawled_pages = json.load(filein) #(need updated) I don't need to load all of the crawled pages
     filein.close()
 
 
@@ -414,7 +414,7 @@ def crawl(seed):
     fileout.close()
 
     filein = open("all-words.json", "r")
-    all_words = json.load(filein)
+    all_words = json.load(filein) #(need updated) I don't need to load all of the words
     filein.close()
 
 

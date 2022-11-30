@@ -69,17 +69,7 @@ def search(phrase, boost):
     crawled_links_list = json.load(filein)
     filein.close()
 
-    filein = open("crawled-words.json", "r")
-    crawled_words = json.load(filein)
-    filein.close()
 
-    filein = open("all-words.json", "r")
-    all_words = json.load(filein)
-    filein.close()
-
-    filein = open("crawled-pages.json", "r")
-    crawled_pages = json.load(filein)
-    filein.close()
 
     # The function must return A LIST OF THE TOP 10 RANKED SEARCH RESULTS, SORTED FROM HIGHEST SCORE TO LOWEST. Each entry in this list must be a DICTIONARY with the following keys and associated values:
     # 1. url - The URL of the page
